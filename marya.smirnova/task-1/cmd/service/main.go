@@ -7,7 +7,7 @@ import (
 func main() {
 	var (
 		x1, x2 int
-		op string
+		op     string
 	)
 	_, err1 := fmt.Scan(&x1)
 	_, err2 := fmt.Scan(&x2)
@@ -38,6 +38,6 @@ func main() {
 		}
 		fmt.Println(x1 / x2)
 	default:
-		fmt.Println("Invalid operation:", op)
+		fmt.Println("Invalid operation")
 	}
 }

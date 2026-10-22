@@ -69,7 +69,6 @@ func main() {
 		}
 
 		if !processDepartment(employeeCount) {
-
 			return
 		}
 	}

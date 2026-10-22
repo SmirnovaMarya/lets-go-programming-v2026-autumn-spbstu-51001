@@ -15,10 +15,13 @@ func processDepartment(employeeCount int) error {
 	upper := maxTemp
 
 	for e := 0; e < employeeCount; e++ {
-		var sign string
-		var value int
+		var (
+			sign  string
+			value int
+		)
 
 		if _, err := fmt.Scan(&sign, &value); err != nil {
+
 			return errors.New("invalid employee input")
 		}
 
@@ -32,6 +35,7 @@ func processDepartment(employeeCount int) error {
 				upper = value
 			}
 		default:
+
 			return errors.New("invalid operation")
 		}
 
@@ -50,6 +54,7 @@ func main() {
 
 	if _, err := fmt.Scan(&departmentCount); err != nil {
 		fmt.Println("Invalid departments count")
+
 		return
 	}
 
@@ -58,10 +63,13 @@ func main() {
 
 		if _, err := fmt.Scan(&employeeCount); err != nil {
 			fmt.Println("Invalid employees count")
+
 			return
 		}
+
 		if err := processDepartment(employeeCount); err != nil {
 			fmt.Println("Error:", err)
+
 			return
 		}
 	}

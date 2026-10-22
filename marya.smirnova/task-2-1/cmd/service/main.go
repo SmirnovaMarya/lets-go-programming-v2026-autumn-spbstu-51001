@@ -36,7 +36,6 @@ func processDepartment(employeeCount int) bool {
 
 		default:
 			fmt.Println("Invalid operation")
-
 			return false
 		}
 
@@ -46,7 +45,6 @@ func processDepartment(employeeCount int) bool {
 			fmt.Println(lower)
 		}
 	}
-
 	return true
 }
 
@@ -55,7 +53,6 @@ func main() {
 
 	if _, err := fmt.Scan(&departmentCount); err != nil {
 		fmt.Println("Invalid departments count")
-
 		return
 	}
 
@@ -64,12 +61,10 @@ func main() {
 
 		if _, err := fmt.Scan(&employeeCount); err != nil {
 			fmt.Println("Invalid employees count")
-
 			return
 		}
 
 		if !processDepartment(employeeCount) {
-
 			return
 		}
 	}

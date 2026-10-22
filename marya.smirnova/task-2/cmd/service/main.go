@@ -1,6 +1,13 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
+
+const (
+	minTemp = 15
+	maxTemp = 30
+)
 
 func main() {
 	var departmentCount int

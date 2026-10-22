@@ -19,7 +19,6 @@ func processDepartment(employeeCount int) bool {
 
 		if _, err := fmt.Scan(&sign, &value); err != nil {
 			fmt.Println("Invalid employee input")
-
 			return false
 		}
 
@@ -63,7 +62,6 @@ func main() {
 			fmt.Println("Invalid employees count")
 			return
 		}
-
 		if !processDepartment(employeeCount) {
 			return
 		}

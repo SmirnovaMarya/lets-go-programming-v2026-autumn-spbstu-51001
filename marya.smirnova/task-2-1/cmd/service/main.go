@@ -1,28 +1,26 @@
 package main
 
-import (
-	"errors"
-	"fmt"
-)
+import "fmt"
 
 const (
 	minTemp = 15
 	maxTemp = 30
 )
 
-func processDepartment(employeeCount int) error {
+func processDepartment(employeeCount int) bool {
 	lower := minTemp
 	upper := maxTemp
 
-	for e := 0; e < employeeCount; e++ {
+	for range employeeCount {
 		var (
 			sign  string
 			value int
 		)
 
 		if _, err := fmt.Scan(&sign, &value); err != nil {
+			fmt.Println("Invalid employee input")
 
-			return errors.New("invalid employee input")
+			return false
 		}
 
 		switch sign {
@@ -30,13 +28,16 @@ func processDepartment(employeeCount int) error {
 			if value > lower {
 				lower = value
 			}
+
 		case "<=":
 			if value < upper {
 				upper = value
 			}
-		default:
 
-			return errors.New("invalid operation")
+		default:
+			fmt.Println("Invalid operation")
+
+			return false
 		}
 
 		if lower > upper {
@@ -46,7 +47,7 @@ func processDepartment(employeeCount int) error {
 		}
 	}
 
-	return nil
+	return true
 }
 
 func main() {
@@ -58,7 +59,7 @@ func main() {
 		return
 	}
 
-	for d := 0; d < departmentCount; d++ {
+	for range departmentCount {
 		var employeeCount int
 
 		if _, err := fmt.Scan(&employeeCount); err != nil {
@@ -67,8 +68,7 @@ func main() {
 			return
 		}
 
-		if err := processDepartment(employeeCount); err != nil {
-			fmt.Println("Error:", err)
+		if !processDepartment(employeeCount) {
 
 			return
 		}
